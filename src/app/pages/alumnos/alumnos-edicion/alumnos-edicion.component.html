@@ -1,0 +1,35 @@
+<form class="example-container" [formGroup]="form" #frmAlumnos="ngForm" (ngSubmit)="operar()">
+
+  <div [hidden]="true">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="ID" formControlName="id_alumno">
+    </mat-form-field>
+  </div>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Nombre" required formControlName="nombre">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Apellido Paterno" required formControlName="ap_paterno">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Apellido Materno" required formControlName="ap_materno">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Estatus" required formControlName="activo">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="frmAlumnos.invalid">
+    <mat-icon>done</mat-icon>
+    <span>Aceptar</span>
+  </button>
+
+  <button mat-raised-button color="acent" routerLink="/alumnos" type="button">
+    <mat-icon>close</mat-icon>
+    <span>Cancelar</span>
+  </button>
+
+</form>

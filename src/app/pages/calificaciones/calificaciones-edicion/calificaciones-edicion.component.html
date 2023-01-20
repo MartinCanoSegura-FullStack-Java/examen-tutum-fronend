@@ -1,0 +1,60 @@
+
+<div class="container">
+  <mat-card>
+    <mat-grid-list cols="6" rowHeight="100px">
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill">
+          <mat-select placeholder="Selecciona un Alumno" [(value)]="idAlumnoSeleccionado">
+            <mat-option *ngFor="let m of alumnos$ | async" [value]="m.id_alumno">
+                {{ m.nombre }} {{ m.ap_paterno }} {{ m.ap_materno }}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill">
+          <mat-select placeholder="Selecciona una Materia" [(value)]="idMateriaSeleccionado">
+            <mat-option *ngFor="let m of materias$ | async" [value]="m.id_materia">
+              {{ m.nombre }} {{ m.id_materia }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Seleccione una fecha" [(ngModel)]="fechaSeleccionada" />
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+      <button mat-raised-button color="primary" (click)="operar()" [disabled]="estadoBotonRegistrar()">
+        <mat-icon>done</mat-icon>
+        <span>Aceptar</span>
+      </button>
+      <button mat-raised-button color="acent" routerLink="/calificaciones">
+        <mat-icon>close</mat-icon>
+        <span>Cancelar</span>
+      </button>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-form-field style="width: 50%;">
+        <mat-label>Calificacion</mat-label>
+          <input matInput placeholder="Calificacion" [(ngModel)]="calificacion "/>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-form-field style="width: 50%;">
+        <mat-label>Promedio total</mat-label>
+          <input matInput placeholder="Pormedio" [(ngModel)]="promedio"/>
+
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
+  </mat-card>
+
+</div>
